@@ -1,10 +1,10 @@
 import React from "react";
 import CardFriends from "../../base/card-friend/CardFriends";
 
-const ListFriends = () => {
+const ListFriends = ({ setActiveChat }) => {
   return (
     <>
-      <CardFriends />
+      <CardFriends setActiveChat={setActiveChat} />
       <CardFriends />
       <CardFriends />
       <CardFriends />

@@ -1,6 +1,7 @@
 import React from "react";
 import chatMenu from "../../../assets/icon/chat-menu.svg";
 import img from "../../../assets/img/img.png";
+import ComingSoon from "../coming-soon/ComingSoon";
 
 const HeaderSender = () => {
   return (
@@ -12,12 +13,17 @@ const HeaderSender = () => {
           <p className="text-gray-400 text-sm">Online</p>
         </div>
       </div>
-      <img
-        src={chatMenu}
-        alt="icon-menu-chat"
-        className="cursor-pointer transition-all "
-        title="menu chats"
-      />
+      <ComingSoon
+        className="border bg-white p-3 absolute right-12 top-4"
+        header="Chat menu"
+      >
+        <img
+          src={chatMenu}
+          alt="icon-menu-chat"
+          className="cursor-pointer transition-all "
+          title="menu chats"
+        />
+      </ComingSoon>
     </div>
   );
 };

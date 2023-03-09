@@ -2,6 +2,7 @@ import React from "react";
 import plus from "../../../assets/icon/Plus.svg";
 import emoticon from "../../../assets/icon/emoticon.svg";
 import iconsend from "../../../assets/icon/sent.png";
+import ComingSoon from "../coming-soon/ComingSoon";
 
 const SendChat = () => {
   return (
@@ -14,16 +15,26 @@ const SendChat = () => {
         />
       </div>
       <div className="flex gap-3">
-        <img
-          src={plus}
-          alt="plus"
-          className="w-5 h-5 cursor-pointer transition-all"
-        />
-        <img
-          src={emoticon}
-          alt="emoticon"
-          className="w-6 h-6 cursor-pointer transition-all"
-        />
+        <ComingSoon
+          header="send file"
+          className="border bg-white p-3 absolute right-20 bottom-6"
+        >
+          <img
+            src={plus}
+            alt="plus"
+            className="w-5 h-5 cursor-pointer transition-all"
+          />
+        </ComingSoon>
+        <ComingSoon
+          header="Emoticon"
+          className="border bg-white p-3 absolute right-20 bottom-6"
+        >
+          <img
+            src={emoticon}
+            alt="emoticon"
+            className="w-6 h-6 cursor-pointer transition-all"
+          />
+        </ComingSoon>
         <div>
           <img
             src={iconsend}

@@ -1,9 +1,12 @@
 import React from "react";
 import img from "../../../assets/img/img.png";
 
-const CardFriends = () => {
+const CardFriends = ({ setActiveChat }) => {
   return (
-    <>
+    <div
+      className="cursor-pointer transition-all"
+      onClick={() => setActiveChat(true)}
+    >
       <div className="flex justify-between items-center h-20">
         <img src={img} alt="profile-img" className="w-12 h-12 object-cover" />
         <div className="flex flex-col gap-2">
@@ -18,7 +21,7 @@ const CardFriends = () => {
         </div>
       </div>
       <hr />
-    </>
+    </div>
   );
 };
 

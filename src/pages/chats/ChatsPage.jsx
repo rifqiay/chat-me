@@ -18,13 +18,15 @@ const ChatsPage = () => {
   const [profile, setProfile] = useState(false);
   const [activeChat, setActiveChat] = useState(false);
 
+  const isChatPage = true;
+
   const token = localStorage.getItem("token");
   const { id } = jwt_decode(token);
 
   const { myProfile } = useSelector((state) => state.user);
 
   let myImg;
-  if (myProfile.photo) {
+  if (myProfile?.photo) {
     const img = myProfile.photo.split(",");
     myImg = img[1];
   }
@@ -38,7 +40,7 @@ const ChatsPage = () => {
       <div className="grid grid-cols-12">
         <div className="col-span-3 px-3">
           {profile ? (
-            <Profile setProfile={setProfile} />
+            <Profile setProfile={setProfile} id={id} />
           ) : (
             <>
               <div className="mt-5">
@@ -47,8 +49,9 @@ const ChatsPage = () => {
               <div>
                 <PreviewProfile
                   photo={myImg}
-                  name={myProfile.name}
-                  username={myProfile.username}
+                  name={myProfile?.name}
+                  username={myProfile?.username}
+                  isChatPage={isChatPage}
                 />
               </div>
               <div>

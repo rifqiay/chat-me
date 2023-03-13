@@ -4,7 +4,7 @@ import emoticon from "../../../assets/icon/emoticon.svg";
 import iconsend from "../../../assets/icon/sent.png";
 import ComingSoon from "../coming-soon/ComingSoon";
 
-const SendChat = () => {
+const SendChat = ({ onSend }) => {
   return (
     <div className="flex gap-5 px-3 items-center">
       <div className="w-full ">
@@ -35,7 +35,7 @@ const SendChat = () => {
             className="w-6 h-6 cursor-pointer transition-all"
           />
         </ComingSoon>
-        <div>
+        <div onClick={onSend}>
           <img
             src={iconsend}
             alt="sendIcon"

@@ -12,7 +12,7 @@ import { getProfile } from "../../config/features/user/userSlice";
 import "./scrollbar.css";
 import jwt_decode from "jwt-decode";
 
-const ChatsPage = () => {
+const ChatsPage = ({ socket }) => {
   const dispatch = useDispatch();
   const [all, setAll] = useState(true);
   const [profile, setProfile] = useState(false);
@@ -34,6 +34,17 @@ const ChatsPage = () => {
   useEffect(() => {
     dispatch(getProfile(id));
   }, [id, dispatch]);
+
+  useEffect(() => {
+    socket.on("send-message", (msg) => {
+      console.log(msg);
+    });
+  }, []);
+
+  const onSend = () => {
+    socket.emit("send-message", "hello world");
+    console.log("kirim");
+  };
 
   return (
     <div className="h-screen overflow-hidden">
@@ -67,7 +78,7 @@ const ChatsPage = () => {
           )}
         </div>
         <div className="col-span-9 py-2">
-          {activeChat ? <LiveChats /> : <BlankChat />}
+          {activeChat ? <LiveChats onSend={onSend} /> : <BlankChat />}
         </div>
       </div>
     </div>

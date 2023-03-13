@@ -3,12 +3,12 @@ import HeaderSender from "../../base/header-sender/HeaderSender";
 import SendChat from "../../base/send-chat/SendChat";
 import ListChats from "../list-chat/ListChats";
 
-const LiveChats = () => {
+const LiveChats = ({ onSend }) => {
   return (
     <div className="px-3">
       <HeaderSender />
       <ListChats />
-      <SendChat />
+      <SendChat onSend={onSend} />
     </div>
   );
 };
